@@ -95,6 +95,16 @@ n ....membatasi jml yg ditampilkan
 M ....sort berdasarkan MEMORI
 P ....mengurutkan berdasarkan CPU
 c ....melihat nama lengkapnya
+z .... higleght judulnya
+k ....kill
+N ... berdasarkan PID
+x ..... BOLD
+u .... memilih user
+o .... untuk filter .COMMAND=dropbox , %CPU>0.0
+= .... unutk menghapus filternya
+b .... di kasih backgruoun
+R .... urutannya di balik 
+T .... berdasarkan running time
 f ....field management , gunakan space unutk membuat bintang , kanan untuk memindah kan fiedl 
 
 #partisi di GNU/Linux
@@ -165,10 +175,25 @@ Press d to cut (or y to copy).
 Move to where you would like to paste.
 Press P to paste before the cursor, or p to paste after.
 
+#meng unmount flashDisk
+sudo fdisk -l 			: 	melihat daftar flash dimasukkan
+sudo umount /dev/sdc1 	:	umount flashDisk
 
+#merubah izin akses file
+chmod u+rwx pusisgombal.text 	: menambahkan hak ke user read write executetable
+chmod ugo+rwx ada.txt 			: menambahkan hak ke user,group,other read write executetable
 
+#merubah kepemilikan file
+#format perintah merubah hak kepemilikan/ownership :
+$ sudo chown user:group namaFile
+#contoh:
+$ sudo chown andi:users laporan.doc
 
+#reset konfigurasi desktop
+dconf reset -f /
 
+#To undo/disable low graphics mode in Unity 7.4.5 run this command:
+gsettings set com.canonical.Unity lowgfx false
 
-
-
+#game 
+sudo apt install ninvaders
