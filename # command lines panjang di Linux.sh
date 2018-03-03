@@ -21,6 +21,7 @@ rm --verbosse coba.txt
 
 #melihat lebih manusiawi -lh HUMAN
 ls -lh
+ls *.html  .... mencari
 
 #melihat info penggunaan perintah bash
 man info help
@@ -85,8 +86,9 @@ ps aux | grep "vlc"
 #menghentikan proses yang berjalan 
 #bila yang di kil punya root kita harus pakai sudo
 kill PID
-
+kill -9 "namaAplikasi" 		: 	membunuh aolikasi yang crass
 killall "namaAplikasi"
+
 
 #perintah pada top
 s ...untuk mengganti refres waktu
@@ -106,6 +108,7 @@ b .... di kasih backgruoun
 R .... urutannya di balik 
 T .... berdasarkan running time
 f ....field management , gunakan space unutk membuat bintang , kanan untuk memindah kan fiedl 
+k .... kill   
 
 #partisi di GNU/Linux
 /bin ....aplikasi jg
@@ -196,4 +199,101 @@ dconf reset -f /
 gsettings set com.canonical.Unity lowgfx false
 
 #game 
-sudo apt install ninvaders
+sudo apt install ninvaderscc
+
+#melihat device yang di pc kita
+ls /dev
+
+#mengganti nama user
+usermod -l newuser olduser
+
+#menjalankan program dri terminal supaya berjalan di backgroun 
+vlc & 			: aplikasi akan tetap berjalan di background
+jobs 			:melihat program yg running
+fg 				:program berjlan di foreig ground
+kill %1			:membunuuh program , 1 merupakan nomer urut program
+kill -9 %1		:membunuh program yg susah
+
+#
+!! 				:artinya memanggil comment terakhir kita 
+!-4				:memanggil perintah -4 dariyg terakhir
+!124 			:memnggil sesiui dngan nomer
+
+#
+ls Downloads/ >> list.txt  				:menambahkan isi file
+sort > list.text 						:mengurutkan
+sort < list.txt > listsort.txt 			:mengurutkna kemudian menyimpannya
+
+#
+ls *.txt 						:* artinya terserah termasuk jumlah nya juga terserah
+ls ?.txt 						:? artinya terserah termasuk jumlah hanya 1 , bila 2 maka ??
+rm * 							:akan menghapus semua
+
+#
+halt 					:mematikan sistem tapi harus dalam mode root
+tail 					:menampilakn 10 baris terakhir suatu file
+
+# Install
+# via http://askubuntu.com/questions/510056/how-to-install-google-chrome
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+
+
+# Update
+
+sudo apt-get --only-upgrade install google-chrome-stable
+
+#format flashdisk
+sudo fdisk -l
+sudo mkfs.vfat /dev/sdb1 			:memformat flashDisk .vfat adalah format nya bisa NTFS ,EXT2, EXT4 ,HFS
+
+#melihat release ubuntu
+lsb_release -a
+
+#m3embuat alias
+alias ips='history'
+unalias ips
+
+#melihat daftar alias
+alias
+
+#melihat user yg aktih
+who
+whoami
+w 
+
+#mematikan dan membersihkan sisitem dan sincron sebelum di matikan
+init 0
+
+#reboot dengan mematikan sepenuhnya
+init 6
+
+#mematikan shotd
+shutdown
+reboot
+poweroff
+
+#Editor VI
+Shift +ZZ   :	untuk keluar da simpan
+
+#melihat isi file dengan di tambahkan nomer urut
+cat -b filecoba.txt 
+
+#membuat direktori dan anak2 nya
+mkdir -p toni/jaya/kusuma
+
+# Gunakan dmesg untuk melihat ring buffer kernel (error messages)
+dmesg | less
+
+# Melihat environment list terakhir,
+1.env | more
+2.env > environmentvariablelist.txt
+
+# Menampilkan userid terakhir dan assigned groups
+1.id
+
+#menampilkan yang terhiden aja
+ls -cat -a
