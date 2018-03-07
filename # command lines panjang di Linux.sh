@@ -297,3 +297,72 @@ dmesg | less
 
 #menampilkan yang terhiden aja
 ls -cat -a
+# SED
+# Digunakan untuk memanipulasi teks.
+# SED untuk Mengganti Teks
+# Syntax:
+# ‘s/teks_sumber/teks_pengganti/flag‘ nama_file
+# Keterangan:
+# s adalah perintah untuk mengganti
+# flag adalah opsi yang terdapat pada perintah s yang terdiri dari:
+# g untuk mengganti semua teks
+# n ini kamu ganti dengan angka sehingga nantinya perintah s akan mengganti urutan ke-n.
+# Contoh:
+# Saya mempunyai file bernama transport.txt dengan isi seperti berikut ini:
+# uang saya ada 7000, hmmm 7000 ini untuk ongkos naik ojek
+# Permintaan:
+# Saya ingin mengganti nilai 7000 menjadi 5000 … ?
+# Jawaban:
+# Gunakan perintah berikut ini:
+sed ‘s/5000/7000/’ transport.txt
+# Hasil:
+# uang saya ada 5000, hmmm 7000 ini untuk ongkos naik ojek
+# Permintaan ke-2:
+# Saya ingin mengganti semua uang 7000 menjadi 5000 … ?
+# Jawaban:
+sed ‘s/5000/7000/g‘ transport.txt
+# Hasil:
+# uang saya ada 5000, hmmm 5000 ini untuk ongkos naik ojek
+# Permintaan ke-3:
+# Saya ingin mengganti uang 7000 yang ke-2 menjadi 5000 … ?
+# Jawaban:
+sed ‘s/5000/7000/2‘ transport.txt
+# Hasil:
+# uang saya ada 7000, hmmm 5000 ini untuk ongkos naik ojek
+# SED untuk Menghapus Teks
+# Untuk menghapus kata atau baris maka kamu bisa gunakan opsi d.
+# 3/4/2018 Perintah SED dalam linux :
+# http://a2fahmi.com/?p=5564 3/4
+# Syntax Menghapus baris:
+# sed ‘barisd‘ nama_file
+# Syntax Menghapus kata:
+# sed ‘/kata/d‘ nama_file
+# Contoh:
+# Saya mempunyai satu file bernama profesi.txt dengan isi seperti berikut ini:
+# Programmer
+# Networking
+# Monitoring
+# Linux admin
+# Permintaan:
+# Saya ingin menghapus baris ke-2 yaitu tulisan ‘Networking’ … ?
+# Jawaban:
+sed ‘2d‘ profesi.txt
+# Hasil:
+# Programmer
+# Monitoring
+# Linux admin
+# Permintaan ke-2:
+# Saya ingin menghapus baris ke-2 dan ke-3 yaitu tulisan ‘Networking’ dan ‘Monitoring’ … ?
+# Jawaban:
+sed ‘2,3d‘ profesi.txt
+# Hasil:
+# Programmer
+# Linux admin
+# Permintaan ke-3:
+# Saya ingin menghapus tulisan ‘Programmer‘ … ?
+# Jawaban:
+sed ‘/Programmer/d‘ profesi.txt
+# Hasil:
+# Networking
+# Monitoring
+# Linux admin
